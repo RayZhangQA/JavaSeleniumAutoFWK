@@ -1,18 +1,25 @@
 Udemy - Selenium WebDriver with Java - Basic to Advanced + Frameworks
 Selenium Basic to Advanced With Java Core Practice - Learning Notes 
 
-
 #Validate the accuracy of xpath and css from browser addons  
 
 #####1. Get the xpath from the browser by copy>>xpath
+
 	e.g. --> //*[@id="forgot_password_link"]
+
 #####2. Change the double quotes to single quite
+
 #####3. Put the modified xpath inside of the double quotes of $x("")
+
 	e.g. --> $x("//*[@id='forgot_password_link']")
+
 #####4. In browser>>Inspect>>Console, paste the modified xpath and then press enter KEY.
+
 	Move your mouse to the Array, you should see "Forgot Your Password?" should be highlighted.
 	This is the way to validate if the xpath is correct.  
+
 #####5. For validate the css, change $x("") to $("").	
+
 	e.g. #mydomainLink --> $("#mydomainLink")
 
 
@@ -144,25 +151,25 @@ Best Practices when working with Frames application.
 #The links in the page
 
 #####1. Get the count of the links in this page
---------------------------------------------
+
 driver.findElements(By.tagName("a")).size();
 http://qaclickacademy.com/practice.php
 
 
 #####2. GEt the count of the links in Footer section of this page
-------------------------------------------------------------
+
 WebElement footerDriver = driver.findElement(By.id("gf-BIG"));
 footerdriver.findElements(By.tagName("a")).size();
 
 
 #####3. Get the count of the links in first column of Footer section of this page
------------------------------------------------------------------------------
+
 WebElement columnDriver = footerdriver.findElement(By.xpath("//table/tbody/tr/td[1]/ul")); 
 columnDriver.findElements(By.tagName("a")).size();
 
 
 #####4. Click on each link in the column and check if the pages are opening
------------------------------------------------------------------------
+
 for (int i=1;columnDriver.findElements(By.tagName("a")).size();i++)
 {
 	String clickOnLinkTab = Keys.chord（Keys.CONTROL,Keys.ENTER）;
@@ -171,7 +178,7 @@ for (int i=1;columnDriver.findElements(By.tagName("a")).size();i++)
 
 
 #####5. Get the title of each open tab
-----------------------------------
+
 Set<String> tabs = driver.getWindowHandls();
 Iterator<String> it = tabs.Iterator();
 
@@ -182,7 +189,7 @@ while(it.hasNext())
 }
 
 #####6. Swith to a new window opened in Selenium
----------------------------------------------
+
 for(String winHandle:driver.getWindowsHandles()){
 	driver.switchTo().window(winHandle);
 }
@@ -192,7 +199,7 @@ for(String winHandle:driver.getWindowsHandles()){
 
 
 #		Practice exercises on Table
---------------------------------------------------------------------------------------
+
 1. Take the WebElement as a sub section instead of driver
 2. Traverse from parent to child node with xpath or cssSelector.
 3. Move to child index with cssSelector
@@ -204,7 +211,7 @@ for(String winHandle:driver.getWindowsHandles()){
 
 
 # Hidden elements - By JavaScript DOM
----------------------------------------------------------------------------------------
+
 JavaScript DOM can extract hidden elements
 Because Selenium cannot identify hidden elements - (Ajax implementation)
 Investigate the properties of object if it have any hidden text
@@ -219,7 +226,7 @@ document.getElementById("id")
 		
 
 #Handling SSL_CERTS and INSECURE_CERTS in Chrome
-----------------------------------------------------------------------------------------
+
 Set DesiredCapabilities - General Chrome profile
 
 	DesiredCapabilities ch = DesiredCapabilities.chrome();
@@ -235,7 +242,7 @@ Set ChromeOptions for local browser
 	
 
 # Maximum the windows || Delete all the cookies || Get Screenshot
-----------------------------------------------------------------------------------------
+
 	driver.manage().window().maximize();
 	driver.manage().deleteAllCookies();
 	driver.manage().deleteCookieNamed("cookName");
@@ -249,7 +256,7 @@ Set ChromeOptions for local browser
 
 
 # Table Column Shorting Strategy Plan
---------------------------------------------------------------------------------------- 	
+
 How to check if the column items are in ascending ordering?
 1. Retrieve all values of Veg/frout name column --> ArrayList e.g. 3,1,2,4,5
 2. Copy ArrayList to ArrayList2 --> apply sort to ArrayList2 --> 1,2,3,4,5
