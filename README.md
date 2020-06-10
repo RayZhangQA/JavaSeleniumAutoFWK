@@ -3,28 +3,28 @@ Selenium Basic to Advanced With Java Core Practice - Learning Notes
 
 #Validate the accuracy of xpath and css from browser addons  
 
-#####1. Get the xpath from the browser by copy>>xpath
+##### 1. Get the xpath from the browser by copy>>xpath
 
 	e.g. --> //*[@id="forgot_password_link"]
 
-#####2. Change the double quotes to single quite
+##### 2. Change the double quotes to single quite
 
-#####3. Put the modified xpath inside of the double quotes of $x("")
+##### 3. Put the modified xpath inside of the double quotes of $x("")
 
 	e.g. --> $x("//*[@id='forgot_password_link']")
 
-#####4. In browser>>Inspect>>Console, paste the modified xpath and then press enter KEY.
+##### 4. In browser>>Inspect>>Console, paste the modified xpath and then press enter KEY.
 
 	Move your mouse to the Array, you should see "Forgot Your Password?" should be highlighted.
 	This is the way to validate if the xpath is correct.  
 
-#####5. For validate the css, change $x("") to $("").	
+##### 5. For validate the css, change $x("") to $("").	
 
 	e.g. #mydomainLink --> $("#mydomainLink")
 
 
 
-#Generating Customized xpath from HTML attributes
+# Generating Customized xpath from HTML attributes
 
 		xpath Syntax --> //tagName[@attribute='value']
 		xpath Syntax --> //*[@attribute='value']
@@ -46,7 +46,7 @@ Selenium Basic to Advanced With Java Core Practice - Learning Notes
 		CSS Syntax --> tagName[Attribute*='value'] --> e.g. input[name*='username']
 
 
-#Locators - Pay Attentions to the Followings:
+# Locators - Pay Attentions to the Followings:
 
 	Classes should not have spaces- Compound classes cannot be accepted
 	Multiple values - Selenium identifies the first one- Scans from top left
@@ -68,14 +68,14 @@ Selenium Basic to Advanced With Java Core Practice - Learning Notes
 	
 	.//*[text()[contains(.,'Visible TEXT')]]	
 
-#Synchronization in Selenium
+# Synchronization in Selenium
 
 		1). Entered form and select movie/flight enter
 		2). Search
 		3). Load 3 seconds
 		4). First flight result:	
 
-#####1. Implicit Wait
+##### 1. Implicit Wait
 	Hey wait for 5(n) number of seconds before you throw exception. 
 	5 is the maximum waiting time.
 	If the generic search is complete in 3 seconds, it will continue to next step immediately.
@@ -96,7 +96,7 @@ Selenium Basic to Advanced With Java Core Practice - Learning Notes
 	Cons -  Performance cause issues are not caught. 
 			If there is a performance issue, it is hardly to be noticed.
 
-#####2. Explicit Wait
+##### 2. Explicit Wait
 	We can setup 15 seconds specifically to all location hotel search. 	
 	
 	Setup an Implicit Wait for generic search and setup an Explicit Wait for Searching all the Hotels.
@@ -112,12 +112,12 @@ Selenium Basic to Advanced With Java Core Practice - Learning Notes
 	Pros - Wait is applied only at targeted elements. So no performance issues.
 	Cons - More code.
 	
-#####3. Thread.sleep(5000)
+##### 3. Thread.sleep(5000)
 	Hold on the execution for 5 seconds.
 	
 	So normally, Thread.sleep() method is not used in real project.
 	
-#####4. FluentWait - Another Explicit Wait mechanism type
+##### 4. FluentWait - Another Explicit Wait mechanism type
 	FluentWait finds the web element repeatedly at regular intervals of time until the timeout or till the object gets found.
 	Unlike WebDriver wait, we need to build Customized wait methods based on condition.
 	Both WebDriverWait and FluentWait classes implement Wait Interface
