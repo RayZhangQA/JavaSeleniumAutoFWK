@@ -2,8 +2,8 @@ Udemy - Selenium WebDriver with Java - Basic to Advanced + Frameworks
 Selenium Basic to Advanced With Java Core Practice - Learning Notes 
 
 
-Validate the accuracy of xpath and css from browser addons  
----------------------------------------------------------------
+#Validate the accuracy of xpath and css from browser addons  
+
 #####1. Get the xpath from the browser by copy>>xpath
 	e.g. --> //*[@id="forgot_password_link"]
 #####2. Change the double quotes to single quite
@@ -16,9 +16,9 @@ Validate the accuracy of xpath and css from browser addons
 	e.g. #mydomainLink --> $("#mydomainLink")
 
 
-_______________________________________________________________________________________	
- 	Generating Customized xpath from HTML attributes
------------------------------------------------------------------------- 
+
+#Generating Customized xpath from HTML attributes
+
 		xpath Syntax --> //tagName[@attribute='value']
 		xpath Syntax --> //*[@attribute='value']
 		css Syntax --> tagName[attribute='value']
@@ -38,9 +38,9 @@ ________________________________________________________________________________
 		xpath Syntax --> //tagName[contains(@attribute,'value')] --> e.g. //input[contains(@name,'username')]	
 		CSS Syntax --> tagName[Attribute*='value'] --> e.g. input[name*='username']
 
-_______________________________________________________________________________________
-Locators - Pay Attentions to the Followings:
------------------------------------------------------------------------
+
+#Locators - Pay Attentions to the Followings:
+
 	Classes should not have spaces- Compound classes cannot be accepted
 	Multiple values - Selenium identifies the first one- Scans from top left
 	Double quotes inside double quotes are not accepted
@@ -60,9 +60,9 @@ Locators - Pay Attentions to the Followings:
 	Chropath - chrome	
 	
 	.//*[text()[contains(.,'Visible TEXT')]]	
-_______________________________________________________________________________________
-Synchronization in Selenium
-------------------------------------------------------------------------------
+
+#Synchronization in Selenium
+
 		1). Entered form and select movie/flight enter
 		2). Search
 		3). Load 3 seconds
@@ -119,9 +119,9 @@ Synchronization in Selenium
 	2). FluentWait = 10 seconds, Polling 4s (every 4 seconds check the condition)
 
 
-_______________________________________________________________________________________
-Actions
---------------------------------------------------------------------------------
+
+# Actions
+
 How to MouseOver on object with Selenium?
 Performing Mouse and keyboard interactions with Selenium
 Context click on element
@@ -131,8 +131,8 @@ drag dropping the element
 driver.switchTo().window(arg0)
 
 
-Frames
------------------
+#Frames
+
 What are Frames?
 	Frame is a part of a Web page or browser window which displays content independent of its container, 
 	with the ability to load content independently.
@@ -141,8 +141,8 @@ How to handle frames?
 Best Practices when working with Frames application. 
 
 
-The links in the page
-------------------------------------------------------------------------------------------------
+#The links in the page
+
 #####1. Get the count of the links in this page
 --------------------------------------------
 driver.findElements(By.tagName("a")).size();
@@ -187,13 +187,11 @@ for(String winHandle:driver.getWindowsHandles()){
 	driver.switchTo().window(winHandle);
 }
 
-_______________________________________________________________________________________
-		Handling Calendar UI in Travel Web Site
---------------------------------------------------------------------------------------
 
-		
-_______________________________________________________________________________________
-		Practice exercises on Table
+#		Handling Calendar UI in Travel Web Site
+
+
+#		Practice exercises on Table
 --------------------------------------------------------------------------------------
 1. Take the WebElement as a sub section instead of driver
 2. Traverse from parent to child node with xpath or cssSelector.
@@ -204,8 +202,8 @@ ________________________________________________________________________________
 7. Sum logic
 8. Get the Text() xpath 
 
-_______________________________________________________________________________________
-Hidden elements - By JavaScript DOM
+
+# Hidden elements - By JavaScript DOM
 ---------------------------------------------------------------------------------------
 JavaScript DOM can extract hidden elements
 Because Selenium cannot identify hidden elements - (Ajax implementation)
@@ -219,8 +217,8 @@ Investigate the properties of object if it have any hidden text
 https://www.w3schools.com/js/js_htmldom_document.asp
 document.getElementById("id")
 		
-_______________________________________________________________________________________
-Handling SSL_CERTS and INSECURE_CERTS in Chrome
+
+#Handling SSL_CERTS and INSECURE_CERTS in Chrome
 ----------------------------------------------------------------------------------------
 Set DesiredCapabilities - General Chrome profile
 
@@ -235,8 +233,8 @@ Set ChromeOptions for local browser
 	System.setProperty("webdriver.chrome.driver","C:\\webdrivers\\chromedriver.exe");
 	WebDriver driver = new ChromeDriver(c);
 	
-_______________________________________________________________________________________
-Maximum the windows || Delete all the cookies || Get Screenshot
+
+# Maximum the windows || Delete all the cookies || Get Screenshot
 ----------------------------------------------------------------------------------------
 	driver.manage().window().maximize();
 	driver.manage().deleteAllCookies();
@@ -249,8 +247,8 @@ Maximum the windows || Delete all the cookies || Get Screenshot
 	//--> --> add the eclipse project >> property >> Java Build Path >> Library >> external jars.
 
 
-_______________________________________________________________________________________
-Table Column Shorting Strategy Plan
+
+# Table Column Shorting Strategy Plan
 --------------------------------------------------------------------------------------- 	
 How to check if the column items are in ascending ordering?
 1. Retrieve all values of Veg/frout name column --> ArrayList e.g. 3,1,2,4,5
