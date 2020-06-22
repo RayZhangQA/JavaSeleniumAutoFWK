@@ -70,13 +70,19 @@ Selenium Basic to Advanced With Java Core Practice - Learning Notes
 
 # Synchronization in Selenium
 
+	1). Implicit Wait
+	2). Explicit Wait
+	3). Thread Sleep
+	4). Fluent Wait	
+
+	Test Scenario:
 		1). Entered form and select movie/flight enter
 		2). Search
-		3). Load 3 seconds
+		3). Load 3 seconds to get the results entirely showing on the page
 		4). First flight result:	
 
-##### 1. Implicit Wait
-	Hey wait for 5(n) number of seconds before you throw exception. 
+#### 1. Implicit Wait
+	Wait for specific number (5) of seconds before you throw exception. 
 	5 is the maximum waiting time.
 	If the generic search is complete in 3 seconds, it will continue to next step immediately.
 	
@@ -96,7 +102,7 @@ Selenium Basic to Advanced With Java Core Practice - Learning Notes
 	Cons -  Performance cause issues are not caught. 
 			If there is a performance issue, it is hardly to be noticed.
 
-##### 2. Explicit Wait
+#### 2. Explicit Wait
 	We can setup 15 seconds specifically to all location hotel search. 	
 	
 	Setup an Implicit Wait for generic search and setup an Explicit Wait for Searching all the Hotels.
@@ -112,20 +118,26 @@ Selenium Basic to Advanced With Java Core Practice - Learning Notes
 	Pros - Wait is applied only at targeted elements. So no performance issues.
 	Cons - More code.
 	
-##### 3. Thread.sleep(5000)
+#### 3. Thread.sleep(5000)
 	Hold on the execution for 5 seconds.
 	
 	So normally, Thread.sleep() method is not used in real project.
 	
-##### 4. FluentWait - Another Explicit Wait mechanism type
+#### 4. FluentWait - Another Explicit Wait mechanism type
 	FluentWait finds the web element repeatedly at regular intervals of time until the timeout or till the object gets found.
 	Unlike WebDriver wait, we need to build Customized wait methods based on condition.
 	Both WebDriverWait and FluentWait classes implement Wait Interface
 
 	1). WebDriverWait = 10 seconds, every ms check the condition
-	2). FluentWait = 10 seconds, Polling 4s (every 4 seconds check the condition)
+	2). FluentWait = 10 seconds, Polling 2s (every 2 seconds check the condition)
 
-
+	Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
+						.pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchElementException.class);
+	WebElement foo = wait.until(new Function<WebDriver,WebElement>(){
+		public WebElement apply(WebDriver driver){
+			return driver.findElement(By.id("foo"));
+		}
+	});
 
 # Actions
 

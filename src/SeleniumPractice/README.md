@@ -1,21 +1,31 @@
-_______________________________________________________________________________________
-Validate the accuracy of xpath and css from browser addons  
----------------------------------------------------------------
-(1). Get the xpath from the browser by copy>>xpath
+Udemy - Selenium WebDriver with Java - Basic to Advanced + Frameworks
+Selenium Basic to Advanced With Java Core Practice - Learning Notes 
+
+#Validate the accuracy of xpath and css from browser addons  
+
+##### 1. Get the xpath from the browser by copy>>xpath
+
 	e.g. --> //*[@id="forgot_password_link"]
-(2). Change the double quotes to single quite
-(3). Put the modified xpath inside of the double quotes of $x("")
+
+##### 2. Change the double quotes to single quite
+
+##### 3. Put the modified xpath inside of the double quotes of $x("")
+
 	e.g. --> $x("//*[@id='forgot_password_link']")
-(4). In browser>>Inspect>>Console, paste the modified xpath and then press enter KEY.
+
+##### 4. In browser>>Inspect>>Console, paste the modified xpath and then press enter KEY.
+
 	Move your mouse to the Array, you should see "Forgot Your Password?" should be highlighted.
 	This is the way to validate if the xpath is correct.  
-（5）. For validate the css, change $x("") to $("").	
+
+##### 5. For validate the css, change $x("") to $("").	
+
 	e.g. #mydomainLink --> $("#mydomainLink")
 
 
-_______________________________________________________________________________________	
- 	Generating Customized xpath from HTML attributes
------------------------------------------------------------------------- 
+
+# Generating Customized xpath from HTML attributes
+
 		xpath Syntax --> //tagName[@attribute='value']
 		xpath Syntax --> //*[@attribute='value']
 		css Syntax --> tagName[attribute='value']
@@ -35,9 +45,9 @@ ________________________________________________________________________________
 		xpath Syntax --> //tagName[contains(@attribute,'value')] --> e.g. //input[contains(@name,'username')]	
 		CSS Syntax --> tagName[Attribute*='value'] --> e.g. input[name*='username']
 
-_______________________________________________________________________________________
-Locators - Pay Attentions to the Followings:
------------------------------------------------------------------------
+
+# Locators - Pay Attentions to the Followings:
+
 	Classes should not have spaces- Compound classes cannot be accepted
 	Multiple values - Selenium identifies the first one- Scans from top left
 	Double quotes inside double quotes are not accepted
@@ -57,16 +67,22 @@ Locators - Pay Attentions to the Followings:
 	Chropath - chrome	
 	
 	.//*[text()[contains(.,'Visible TEXT')]]	
-_______________________________________________________________________________________
-Synchronization in Selenium
-------------------------------------------------------------------------------
+
+# Synchronization in Selenium
+
+	1). Implicit Wait
+	2). Explicit Wait
+	3). Thread Sleep
+	4). Fluent Wait	
+
+	Test Scenario:
 		1). Entered form and select movie/flight enter
 		2). Search
-		3). Load 3 seconds
+		3). Load 3 seconds to get the results entirely showing on the page
 		4). First flight result:	
 
-1. Implicit Wait
-	Hey wait for 5(n) number of seconds before you throw exception. 
+#### 1. Implicit Wait
+	Wait for specific number (5) of seconds before you throw exception. 
 	5 is the maximum waiting time.
 	If the generic search is complete in 3 seconds, it will continue to next step immediately.
 	
@@ -86,7 +102,7 @@ Synchronization in Selenium
 	Cons -  Performance cause issues are not caught. 
 			If there is a performance issue, it is hardly to be noticed.
 
-2. Explicit Wait
+#### 2. Explicit Wait
 	We can setup 15 seconds specifically to all location hotel search. 	
 	
 	Setup an Implicit Wait for generic search and setup an Explicit Wait for Searching all the Hotels.
@@ -102,23 +118,29 @@ Synchronization in Selenium
 	Pros - Wait is applied only at targeted elements. So no performance issues.
 	Cons - More code.
 	
-3. Thread.sleep(5000)
+#### 3. Thread.sleep(5000)
 	Hold on the execution for 5 seconds.
 	
 	So normally, Thread.sleep() method is not used in real project.
 	
-4. FluentWait - Another Explicit Wait mechanism type
+#### 4. FluentWait - Another Explicit Wait mechanism type
 	FluentWait finds the web element repeatedly at regular intervals of time until the timeout or till the object gets found.
 	Unlike WebDriver wait, we need to build Customized wait methods based on condition.
 	Both WebDriverWait and FluentWait classes implement Wait Interface
 
 	1). WebDriverWait = 10 seconds, every ms check the condition
-	2). FluentWait = 10 seconds, Polling 4s (every 4 seconds check the condition)
+	2). FluentWait = 10 seconds, Polling 2s (every 2 seconds check the condition)
 
+	Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
+						.pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchElementException.class);
+	WebElement foo = wait.until(new Function<WebDriver,WebElement>(){
+		public WebElement apply(WebDriver driver){
+			return driver.findElement(By.id("foo"));
+		}
+	});
 
-_______________________________________________________________________________________
-Actions
---------------------------------------------------------------------------------
+# Actions
+
 How to MouseOver on object with Selenium?
 Performing Mouse and keyboard interactions with Selenium
 Context click on element
@@ -128,8 +150,8 @@ drag dropping the element
 driver.switchTo().window(arg0)
 
 
-Frames
------------------
+#Frames
+
 What are Frames?
 	Frame is a part of a Web page or browser window which displays content independent of its container, 
 	with the ability to load content independently.
@@ -138,28 +160,28 @@ How to handle frames?
 Best Practices when working with Frames application. 
 
 
-The links in the page
-------------------------------------------------------------------------------------------------
-1. Get the count of the links in this page
---------------------------------------------
+#The links in the page
+
+#####1. Get the count of the links in this page
+
 driver.findElements(By.tagName("a")).size();
 http://qaclickacademy.com/practice.php
 
 
-2. GEt the count of the links in Footer section of this page
-------------------------------------------------------------
+#####2. GEt the count of the links in Footer section of this page
+
 WebElement footerDriver = driver.findElement(By.id("gf-BIG"));
 footerdriver.findElements(By.tagName("a")).size();
 
 
-3. Get the count of the links in first column of Footer section of this page
------------------------------------------------------------------------------
+#####3. Get the count of the links in first column of Footer section of this page
+
 WebElement columnDriver = footerdriver.findElement(By.xpath("//table/tbody/tr/td[1]/ul")); 
 columnDriver.findElements(By.tagName("a")).size();
 
 
-4. Click on each link in the column and check if the pages are opening
------------------------------------------------------------------------
+#####4. Click on each link in the column and check if the pages are opening
+
 for (int i=1;columnDriver.findElements(By.tagName("a")).size();i++)
 {
 	String clickOnLinkTab = Keys.chord（Keys.CONTROL,Keys.ENTER）;
@@ -167,8 +189,8 @@ for (int i=1;columnDriver.findElements(By.tagName("a")).size();i++)
 }		
 
 
-5. Get the title of each open tab
-----------------------------------
+#####5. Get the title of each open tab
+
 Set<String> tabs = driver.getWindowHandls();
 Iterator<String> it = tabs.Iterator();
 
@@ -178,20 +200,18 @@ while(it.hasNext())
 	System.out.println(driver.getTitle());
 }
 
-6. Swith to a new window opened in Selenium
----------------------------------------------
+#####6. Swith to a new window opened in Selenium
+
 for(String winHandle:driver.getWindowsHandles()){
 	driver.switchTo().window(winHandle);
 }
 
-_______________________________________________________________________________________
-		Handling Calendar UI in Travel Web Site
---------------------------------------------------------------------------------------
 
-		
-_______________________________________________________________________________________
-		Practice exercises on Table
---------------------------------------------------------------------------------------
+#		Handling Calendar UI in Travel Web Site
+
+
+#		Practice exercises on Table
+
 1. Take the WebElement as a sub section instead of driver
 2. Traverse from parent to child node with xpath or cssSelector.
 3. Move to child index with cssSelector
@@ -201,9 +221,9 @@ ________________________________________________________________________________
 7. Sum logic
 8. Get the Text() xpath 
 
-_______________________________________________________________________________________
-Hidden elements - By JavaScript DOM
----------------------------------------------------------------------------------------
+
+# Hidden elements - By JavaScript DOM
+
 JavaScript DOM can extract hidden elements
 Because Selenium cannot identify hidden elements - (Ajax implementation)
 Investigate the properties of object if it have any hidden text
@@ -216,9 +236,9 @@ Investigate the properties of object if it have any hidden text
 https://www.w3schools.com/js/js_htmldom_document.asp
 document.getElementById("id")
 		
-_______________________________________________________________________________________
-Handling SSL_CERTS and INSECURE_CERTS in Chrome
-----------------------------------------------------------------------------------------
+
+#Handling SSL_CERTS and INSECURE_CERTS in Chrome
+
 Set DesiredCapabilities - General Chrome profile
 
 	DesiredCapabilities ch = DesiredCapabilities.chrome();
@@ -232,9 +252,9 @@ Set ChromeOptions for local browser
 	System.setProperty("webdriver.chrome.driver","C:\\webdrivers\\chromedriver.exe");
 	WebDriver driver = new ChromeDriver(c);
 	
-_______________________________________________________________________________________
-Maximum the windows || Delete all the cookies || Get Screenshot
-----------------------------------------------------------------------------------------
+
+# Maximum the windows || Delete all the cookies || Get Screenshot
+
 	driver.manage().window().maximize();
 	driver.manage().deleteAllCookies();
 	driver.manage().deleteCookieNamed("cookName");
@@ -246,29 +266,12 @@ Maximum the windows || Delete all the cookies || Get Screenshot
 	//--> --> add the eclipse project >> property >> Java Build Path >> Library >> external jars.
 
 
-_______________________________________________________________________________________
-Table Column Shorting Strategy Plan
---------------------------------------------------------------------------------------- 	
+
+# Table Column Shorting Strategy Plan
+
 How to check if the column items are in ascending ordering?
 1. Retrieve all values of Veg/frout name column --> ArrayList e.g. 3,1,2,4,5
 2. Copy ArrayList to ArrayList2 --> apply sort to ArrayList2 --> 1,2,3,4,5
 3. Compare ArrayList and ArrayList2, if they are same, means the ArrayList is not in ascending ordering.
-4. Convert from ascending to descending or vice versa. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+4. Convert from ascending to descending or vice versa. Udemy - Selenium WebDriver with Java - Basic to Advanced + Frameworks
 
