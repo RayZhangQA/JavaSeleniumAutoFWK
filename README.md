@@ -275,3 +275,6 @@ How to check if the column items are in ascending ordering?
 3. Compare ArrayList and ArrayList2, if they are same, means the ArrayList is not in ascending ordering.
 4. Convert from ascending to descending or vice versa. Udemy - Selenium WebDriver with Java - Basic to Advanced + Frameworks
 
+###### Convert the hard coded paths to Dynamic Path
+System.getProperty("user.dir")
+
