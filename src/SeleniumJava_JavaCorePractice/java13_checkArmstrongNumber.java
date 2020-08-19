@@ -16,9 +16,9 @@ public class java13_checkArmstrongNumber {
 		}
 
 		if (temp == c)
-			System.out.println("armstrong number");
+			System.out.println(temp + " is an armstrong number");
 		else
-			System.out.println("Not armstrong number");
+			System.out.println(temp + " is Not an armstrong number");
 
 	}
 

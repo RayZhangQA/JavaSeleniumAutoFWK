@@ -8,7 +8,7 @@ public class java24_sortStringArray {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String fruits[] = { "Orange", "Grape", "Apple", "Lemon", "Banana" };
+		String fruits[] = { "Orange", "Grape", "Apple", "Lemon", "Banana", "Pear" };
 
 		// Sorts fruits[] in ascending order
 		Arrays.sort(fruits);

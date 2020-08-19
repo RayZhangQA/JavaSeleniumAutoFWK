@@ -3,12 +3,11 @@ package SeleniumJava_JavaCorePractice;
 public class java03_reverseNumbers {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		long lnum = 654321;
+		long number = 123456325;
 		java03_reverseNumbers input = new java03_reverseNumbers();
 
-		System.out.println("Input value : " + lnum);
-		System.out.println("Inverted value : " + input.doInvert(lnum));
+		System.out.println("Input value : " + number);
+		System.out.println("Inverted value : " + input.doInvert(number));
 
 	}
 

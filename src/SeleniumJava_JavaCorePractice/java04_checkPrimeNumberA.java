@@ -23,6 +23,10 @@ public class java04_checkPrimeNumberA {
 
 }
 
+// Prime numbers are numbers that have only 2 factors:
+// 1 and themselves. For example, the first 5 prime numbers are 2, 3, 5, 7, and 11.
+// By contrast, numbers with more than 2 factors are call composite numbers.
+
 //In the above program, for loop is used to determine if the given number num is prime or not. 
 //We only have to loop through 2 to half of num, because no number is divisible by more than its half.
 

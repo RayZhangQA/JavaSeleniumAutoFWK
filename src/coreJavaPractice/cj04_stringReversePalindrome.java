@@ -7,30 +7,37 @@ public class cj04_stringReversePalindrome {
 
 		/*
 		 * 1. In for loop: i setup to s.length()-1 because the index start from 0.
-		 * otherwise will get the "String index out of range: 8" 2. i>=0 means i start
+		 * otherwise will get the "String index out of range: 8". 2. i>=0 means i start
 		 * from 0. if use i>0, it will start 1 and will miss one char.
 		 */
-		String s = "RayZhang";
-//		String s = "12345654321";
-		System.out.println(s);
 
-		String t = "";
-		for (int i = s.length() - 1; i >= 0; i--) {
+		String sourceString = "12345654321";
+		// String sourceString = "RayZhang";
+		System.out.println(sourceString);
+
+		String targetString = "";
+		for (int i = sourceString.length() - 1; i >= 0; i--) {
 			// System.out.println(s.charAt(i));
-			t = t + s.charAt(i);
+			targetString = targetString + sourceString.charAt(i);
 		}
 
-		System.out.println(t);
+		System.out.println(targetString);
 
-		// Check if the string is a Palindrome String
-		// Do not use "s == t" to compare the 2 strings. It does not work.
-		// Use equals to compare the 2 strings.
+		/*
+		 * Check if the string is a Palindrome String. Do not use "s == t" to compare
+		 * the 2 strings. It does not work. // Use equals to compare the 2 strings.
+		 */
 
-		if (s.equals(t)) {
-			System.out.println("The String " + s + " is a Palindrome String.");
+		if (sourceString.equals(targetString)) {
+			System.out.println("The String " + sourceString + " is a Palindrome String.");
 		} else {
-			System.out.println("The String " + s + " is NOT a Palindrome String.");
+			System.out.println("The String " + sourceString + " is NOT a Palindrome String.");
 		}
 	}
 
 }
+
+/*
+ * A string is called to be a Palindrome If the String read from left to right
+ * is equal to the string read from right to left.
+ */

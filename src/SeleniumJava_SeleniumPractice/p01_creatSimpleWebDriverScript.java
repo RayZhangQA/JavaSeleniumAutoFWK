@@ -11,6 +11,13 @@ public class p01_creatSimpleWebDriverScript {
 		// Step1: set System Property with the webdriver path
 		System.setProperty("webdriver.chrome.driver", "C:\\webdrivers\\chromedriver.exe");
 
+//		ChromeOptions options = new ChromeOptions();
+//		File extnFile = new File("/path/to/extension.crx");
+//		options.addExtensions(extnFile);
+//		DesiredCapabilities dc = DesiredCapabilities.chrome();
+//		dc.setCapability(ChromeOptions.CAPABILITY, options);
+//		WebDriver driver = new RemoteWebDriver(dc);
+
 		// Step2: Define the WebDriver with new ChromeDriver()
 		WebDriver driver = new ChromeDriver();
 
@@ -22,7 +29,7 @@ public class p01_creatSimpleWebDriverScript {
 		System.out.println("Webpage gets loaded successfully!!!");
 
 		// Step5: Close or quit the Browser
-		// driver.close();
+		driver.close();
 	}
 
 }

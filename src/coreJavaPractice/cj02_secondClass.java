@@ -2,7 +2,7 @@ package coreJavaPractice;
 
 public class cj02_secondClass {
 
-	public void setDat() {
+	public void setData() {
 		System.out.println("I am in secondClass Method.");
 	}
 
