@@ -7,8 +7,12 @@ public class cj14_rightRotateArrayNtimes {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int[] intArray = { 3, 8, 9, 7, 6, 1, -5, 2, 0, 11, 15, 18, 29, 222, 456, 122, -12, 567, 433 };
-		int rotateNum = 10;
+		// int[] intArray = { 3, 8, 9, 7, 6, 1, -5, 2, 0, 11, 15, 18, 29, 222, 456,
+		// 122};
+		// int[] intArray = {};
+		// int[] intArray = {0};
+		int[] intArray = { 5, 8 };
+		int rotateNum = 1;
 
 		System.out.println("The original array: " + Arrays.toString(intArray));
 		// System.out.println("Array Length is: " + intArray.length);
@@ -20,9 +24,12 @@ public class cj14_rightRotateArrayNtimes {
 
 		for (int j = 1; j <= num; j++) { // right rotate the array by num times.
 
-			int n = array.length - 1;
-			int temp = array[n];
-			for (int i = n; i >= 1; i--) { // right rotate the array by 1 item.
+			if (array.length <= 1) {
+				return array;
+			}
+
+			int temp = array[array.length - 1];
+			for (int i = array.length - 1; i >= 1; i--) { // right rotate the array by 1 item.
 				array[i] = array[i - 1];
 			}
 			array[0] = temp;
